@@ -58,14 +58,14 @@ spec:
         app:  mysql
         project:  expense
         tier: db
-  spec:
-    terminationGracePeriodSeconds: 10
-    containers:
-    - name: mysql
-      image:  joindevops/mysql:1.0.0
-      volumeMounts:
+    spec:
+      terminationGracePeriodSeconds: 10
+      containers:
       - name: mysql
-        mountPath: /var/lib/mysql
+        image:  joindevops/mysql:1.0.0
+        volumeMounts:
+        - name: mysql
+          mountPath: /var/lib/mysql
   # Instead of creating a PVC resource, you can directly provide in statefulset
   volumeClaimTemplates:
   - metadata:
